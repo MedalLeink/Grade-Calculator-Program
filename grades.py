@@ -25,10 +25,34 @@ else:
 last_digit = grade % 10
 
 #Determine the sign
+sign = ""
+
+if last_digit >= 7:
+    sign = "+"
+elif last_digit < 3:
+    sign = "-"
+else:
+    sign = ""
  
+#Handle exception cases (A+, F+, F-)
+
+# if grade >= 97:
+#     sign = ""
+# elif grade < 60:
+#     sign = ""
+
+# OR 
+
+if letter == "A" and sign == "+":
+    sign = ""
+# elif letter == "F" and sign == "+" or letter == "F" and sign == "-":
+#     sign = ""
+elif letter == "F":
+    sign = ""
+
 
 #Display the letter grade to the user at the end
-print(f"You have earned the grade {letter}")
+print(f"You have earned the grade {letter}{sign}")
 
 if grade >= 70:
     print("Congratulations! You have passed the course.🥳")
